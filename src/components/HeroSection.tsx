@@ -1,5 +1,6 @@
 import { FadeIn } from "./FadeIn";
 import { Magnet } from "./Magnet";
+import { InteractiveCanvas3D } from "./InteractiveCanvas3D";
 
 export const HeroSection = () => {
   return (
@@ -31,11 +32,9 @@ export const HeroSection = () => {
             <span>Hi, i&apos;m</span>
             <FadeIn delay={0.6} y={30}>
               <Magnet padding={200} strength={3}>
-                <img
-                  src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png"
-                  alt="Chaitanya portrait"
-                  className="w-[80px] sm:w-[120px] md:w-[160px] lg:w-[200px] mx-2 sm:mx-4 md:mx-6 inline-block rounded-full object-cover"
-                />
+                <div className="w-[100px] h-[80px] sm:w-[140px] sm:h-[110px] md:w-[200px] md:h-[150px] lg:w-[240px] lg:h-[180px] mx-2 sm:mx-4 md:mx-6 inline-block align-middle rounded-lg overflow-hidden">
+                  <InteractiveCanvas3D />
+                </div>
               </Magnet>
             </FadeIn>
           </h1>
