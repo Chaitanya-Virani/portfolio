@@ -1,4 +1,4 @@
-import { motion, UseViewportProps } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect } from "react";
 
 interface FadeInProps {
@@ -16,7 +16,7 @@ export const FadeIn = ({
   x = 0,
   y = 30,
 }: FadeInProps) => {
-  const viewport: UseViewportProps = {
+  const viewport = {
     once: true,
     margin: "50px",
     amount: 0,

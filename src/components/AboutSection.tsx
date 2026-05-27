@@ -1,4 +1,6 @@
 import { FadeIn } from "./FadeIn";
+import { AnimatedText } from "./AnimatedText";
+import { ContactButton } from "./ContactButton";
 
 export const AboutSection = () => {
   return (

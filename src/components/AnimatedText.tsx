@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 interface AnimatedTextProps {
   children: string;

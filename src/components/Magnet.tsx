@@ -16,7 +16,9 @@ export const Magnet = ({
   activeTransition = "transform 0.3s ease-out",
   inactiveTransition = "transform 0.6s ease-in-out",
 }: MagnetProps) => {
-  const [style, setStyle] = useState({ transform: "translate3d(0, 0, 0)" });
+  const [style, setStyle] = useState<{ transform: string; transition?: string }>({
+    transform: "translate3d(0, 0, 0)"
+  });
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

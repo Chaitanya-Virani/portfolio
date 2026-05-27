@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const gifUrls = [
   "https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif",
