@@ -58,7 +58,8 @@ export const MarqueeSection = () => {
               key={index}
               src={url}
               alt=""
-              className="w-[420px] h-[270px] rounded-2xl object-cover loading-lazy"
+              loading="lazy"
+              className="w-[420px] h-[270px] rounded-2xl object-cover flex-shrink-0"
             />
           ))}
         </div>
@@ -71,7 +72,8 @@ export const MarqueeSection = () => {
               key={index}
               src={url}
               alt=""
-              className="w-[420px] h-[270px] rounded-2xl object-cover loading-lazy"
+              loading="lazy"
+              className="w-[420px] h-[270px] rounded-2xl object-cover flex-shrink-0"
             />
           ))}
         </div>

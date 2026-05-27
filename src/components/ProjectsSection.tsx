@@ -1,6 +1,7 @@
 import { FadeIn } from "./FadeIn";
 import { LiveProjectButton } from "./LiveProjectButton";
-import { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const projectsData = [
   {
@@ -9,9 +10,9 @@ const projectsData = [
     category: "Personal",
     title: "Customer Insight Triage System",
     images: [
-      "https://higgsfield.ai/media/bcda1234-5678-90ab-cdef-1234567890ab",
-      "https://higgsfield.ai/media/deadbeef-cafe-babe-1234-567890abcdef",
-      "https://higgsfield.ai/media/11223344-5566-7788-9900-aabbccddeeff"
+      "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85",
+      "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85",
+      "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85"
     ]
   },
   {
@@ -20,9 +21,9 @@ const projectsData = [
     category: "Personal",
     title: "ESP32 Wireless Walkie-Talkie",
     images: [
-      "https://higgsfield.ai/media/ffeeddcc-bbaa-9988-7766-554433221100",
-      "https://higgsfield.ai/media/00112233-4455-6677-8899-aabbccddeeff",
-      "https://higgsfield.ai/media/abcdef01-2345-6789-abcd-ef0123456789"
+      "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85",
+      "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85",
+      "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85"
     ]
   },
   {
@@ -31,19 +32,14 @@ const projectsData = [
     category: "In Progress",
     title: "Multi-Agent Research Assistant",
     images: [
-      "https://higgsfield.ai/media/bcda1234-5678-90ab-cdef-1234567890ab",
-      "https://higgsfield.ai/media/ffeeddcc-bbaa-9988-7766-554433221100",
-      "https://higgsfield.ai/media/11223344-5566-7788-9900-aabbccddeeff"
+      "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85",
+      "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85",
+      "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85"
     ]
   }
 ];
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-
 const ProjectCard = ({ project, index, progress, targetScale }: any) => {
-  // Use the global section progress to trigger the scale down.
-  // Card 0 starts scaling when progress is 0, Card 1 at 0.33, etc.
   const range = [index * 0.33, 1];
   const scale = useTransform(progress, range, [1, targetScale]);
   
@@ -57,14 +53,14 @@ const ProjectCard = ({ project, index, progress, targetScale }: any) => {
           scale,
           transformOrigin: "top center"
         }}
-        className="w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[var(--color-border)] bg-[#0C0C0C]/80 backdrop-blur-md p-4 sm:p-6 md:p-8 shadow-2xl"
+        className="w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-6 md:p-8 shadow-2xl"
       >
         {/* Top row */}
         <div className="flex items-start gap-4 mb-4">
           <div className="font-black text-white text-[clamp(3rem,10vw,140px)] leading-none">
             {project.number}
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col flex-1">
             <span className="text-[rgba(215,226,234,0.6)] text-xs uppercase tracking-wider">
               {project.category}
             </span>
@@ -82,11 +78,13 @@ const ProjectCard = ({ project, index, progress, targetScale }: any) => {
             <img
               src={project.images[0]}
               alt=""
+              loading="lazy"
               className="w-full h-[clamp(130px,16vw,230px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
             />
             <img
               src={project.images[1]}
               alt=""
+              loading="lazy"
               className="w-full h-[clamp(160px,22vw,340px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
             />
           </div>
@@ -96,6 +94,7 @@ const ProjectCard = ({ project, index, progress, targetScale }: any) => {
             <img
               src={project.images[2]}
               alt=""
+              loading="lazy"
               className="w-full h-[clamp(260px,35vw,480px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
             />
           </div>
@@ -113,10 +112,10 @@ export const ProjectsSection = () => {
   });
 
   return (
-    <section ref={containerRef} className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-10 px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32">
+    <section id="projects" ref={containerRef} className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-10 px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32">
       <FadeIn delay={0} y={20}>
         <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-[clamp(3rem,12vw,160px)] mb-16 sm:mb-20 md:mb-28">
-          Project
+          Projects
         </h2>
       </FadeIn>
 

@@ -2,18 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-bg: oklch(15% 0.01 260);
-  --color-text-primary: oklch(92% 0.01 260);
-  --color-text-secondary: oklch(75% 0.01 260);
-  --color-accent: oklch(55% 0.22 300);
-  --color-border: oklch(92% 0.01 260 / 20%);
-  --ease-quint: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
 html, body, #root, .main-wrapper {
-  background: var(--color-bg);
-  color: var(--color-text-primary);
+  background: #0C0C0C;
+  color: #D7E2EA;
   font-family: 'Kanit', sans-serif;
 }
 

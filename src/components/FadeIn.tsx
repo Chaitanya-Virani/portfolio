@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -16,18 +15,12 @@ export const FadeIn = ({
   x = 0,
   y = 30,
 }: FadeInProps) => {
-  const viewport = {
-    once: true,
-    margin: "50px",
-    amount: 0,
-  };
-
   return (
     <motion.div
-      whileInView="viewport"
-      viewport={viewport}
       initial={{ x, y, opacity: 0 }}
-      animate={{ x: 0, y: 0, opacity: 1, transition: { delay, duration, ease: [0.25, 0.1, 0.25, 1] } }}
+      whileInView={{ x: 0, y: 0, opacity: 1 }}
+      transition={{ delay, duration, ease: [0.25, 0.1, 0.25, 1] }}
+      viewport={{ once: true, margin: "50px", amount: 0 }}
     >
       {children}
     </motion.div>

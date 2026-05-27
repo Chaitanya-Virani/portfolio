@@ -1,4 +1,4 @@
-import { motion, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 interface MagnetProps {
@@ -16,8 +16,9 @@ export const Magnet = ({
   activeTransition = "transform 0.3s ease-out",
   inactiveTransition = "transform 0.6s ease-in-out",
 }: MagnetProps) => {
-  const [style, setStyle] = useState<{ transform: string; transition?: string }>({
-    transform: "translate3d(0, 0, 0)"
+  const [style, setStyle] = useState<{ transform: string; transition?: string; willChange?: string }>({
+    transform: "translate3d(0, 0, 0)",
+    willChange: "transform",
   });
   const elementRef = useRef<HTMLDivElement>(null);
 
@@ -36,11 +37,13 @@ export const Magnet = ({
         setStyle({
           transform: `translate3d(${translateX}px, ${translateY}px, 0)`,
           transition: activeTransition,
+          willChange: "transform",
         });
       } else {
         setStyle({
           transform: "translate3d(0, 0, 0)",
           transition: inactiveTransition,
+          willChange: "transform",
         });
       }
     };
@@ -50,8 +53,8 @@ export const Magnet = ({
   }, [padding, strength, activeTransition, inactiveTransition]);
 
   return (
-    <motion.div ref={elementRef} style={style}>
+    <div ref={elementRef} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 };

@@ -1,7 +1,7 @@
 {
-  "name": "jack-3d-portfolio",
+  "name": "chaitanya-portfolio",
   "version": "1.0.0",
-  "description": "3D Creator portfolio landing page for Jack",
+  "description": "Chaitanya Virani — AI Engineer Portfolio",
   "main": "src/main.tsx",
   "scripts": {
     "dev": "vite",
