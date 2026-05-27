@@ -1,27 +1,27 @@
 import { useEffect, useRef, useState } from "react";
 
 const gifUrls = [
-  "https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif",
-  "https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif",
-  "https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif",
-  "https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif",
-  "https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif",
-  "https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif",
-  "https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif",
-  "https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif",
-  "https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif",
-  "https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif",
-  "https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif",
-  "https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif",
-  "https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif",
-  "https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif",
-  "https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif",
-  "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif",
-  "https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif",
-  "https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif",
-  "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif",
-  "https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif",
-  "https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif"
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1518932945647-7a3c96943e28?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1531297172864-45d06140c4b0?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1580894732444-8ecbef79bd1d?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=420&h=270&q=80",
+  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=420&h=270&q=80"
 ];
 
 export const MarqueeSection = () => {

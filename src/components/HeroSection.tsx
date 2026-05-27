@@ -1,6 +1,5 @@
 import { FadeIn } from "./FadeIn";
 import { Magnet } from "./Magnet";
-import { ContactButton } from "./ContactButton";
 
 export const HeroSection = () => {
   return (
@@ -25,37 +24,36 @@ export const HeroSection = () => {
         </nav>
       </FadeIn>
 
-      {/* Heading */}
+      {/* Heading with 3D portrait inline */}
       <FadeIn delay={0.15} y={40}>
-        <div className="overflow-hidden">
-          <h1 className="hero-heading font-black uppercase tracking-tight leading-none w-full text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw] mt-6 sm:mt-4 md:-mt-5">
-            Hi, i&apos;m chaitanya
+        <div className="overflow-hidden px-6 md:px-10">
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none w-full text-[12vw] sm:text-[13vw] md:text-[14vw] lg:text-[15vw] mt-6 sm:mt-4 md:-mt-2 flex items-center">
+            <span>Hi, i&apos;m</span>
+            <FadeIn delay={0.6} y={30}>
+              <Magnet padding={200} strength={3}>
+                <img
+                  src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png"
+                  alt="Chaitanya portrait"
+                  className="w-[80px] sm:w-[120px] md:w-[160px] lg:w-[200px] mx-2 sm:mx-4 md:mx-6 inline-block rounded-full object-cover"
+                />
+              </Magnet>
+            </FadeIn>
+          </h1>
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none w-full text-[12vw] sm:text-[13vw] md:text-[14vw] lg:text-[15vw] -mt-1 sm:-mt-2 md:-mt-4">
+            chaitanya
           </h1>
         </div>
       </FadeIn>
 
+      {/* Spacer to push bottom bar down */}
+      <div className="flex-1" />
+
       {/* Bottom bar */}
       <FadeIn delay={0.35} y={20}>
-        <div className="flex justify-between items-end pb-7 sm:pb-8 md:pb-10 px-6 md:px-10">
+        <div className="pb-7 sm:pb-8 md:pb-10 px-6 md:px-10">
           <div className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px] text-[clamp(0.75rem,1.4vw,1.5rem)]">
             AN AI ENGINEER OBSESSED WITH AGENTS THAT ACT
           </div>
-          <FadeIn delay={0.5} y={20}>
-            <ContactButton />
-          </FadeIn>
-        </div>
-      </FadeIn>
-
-      {/* Portrait */}
-      <FadeIn delay={0.6} y={30}>
-        <div className="absolute left-1/2 -translate-x-1/2 z-10 top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-auto">
-          <Magnet padding={200} strength={3}>
-            <img
-              src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png"
-              alt="Chaitanya portrait"
-              className="w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px]"
-            />
-          </Magnet>
         </div>
       </FadeIn>
     </div>

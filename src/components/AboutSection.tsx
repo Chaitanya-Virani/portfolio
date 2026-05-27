@@ -1,6 +1,5 @@
 import { FadeIn } from "./FadeIn";
 import { AnimatedText } from "./AnimatedText";
-import { ContactButton } from "./ContactButton";
 
 export const AboutSection = () => {
   return (
@@ -51,12 +50,6 @@ export const AboutSection = () => {
         >
           An ICT student obsessed with building AI systems that don't just predict — they act. i focus on agentic pipelines, real-time automation, and embedded intelligence. Let's build something that thinks together!
         </AnimatedText>
-
-        <div className="mt-6 sm:mt-8 md:mt-10">
-          <FadeIn delay={0.2} y={10}>
-            <ContactButton />
-          </FadeIn>
-        </div>
       </div>
     </section>
   );
