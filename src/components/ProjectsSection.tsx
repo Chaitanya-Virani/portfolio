@@ -9,6 +9,8 @@ const projectsData = [
     number: "01",
     category: "Personal",
     title: "Customer Insight Triage System",
+    liveUrl: "https://cits-u9pn.onrender.com/",
+    githubUrl: "https://github.com/Chaitanya-Virani/CITS",
     images: [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
@@ -20,21 +22,10 @@ const projectsData = [
     number: "02",
     category: "Personal",
     title: "ESP32 Wireless Walkie-Talkie",
+    githubUrl: "https://github.com/Chaitanya-Virani/ESP32_WALKIE-TALKIE",
     images: [
-      "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=1200&q=80"
-    ]
-  },
-  {
-    id: 3,
-    number: "03",
-    category: "In Progress",
-    title: "Multi-Agent Research Assistant",
-    images: [
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
+      "/projects/esp32-diagram.png",
+      "/projects/esp32-hardware.png"
     ]
   }
 ];
@@ -67,37 +58,66 @@ const ProjectCard = ({ project, index, progress, targetScale }: any) => {
             <h3 className="text-white font-black text-xl tracking-tight">
               {project.title}
             </h3>
-            <LiveProjectButton className="mt-2" />
+            <div className="flex flex-wrap gap-3 mt-4">
+              {project.liveUrl && (
+                <LiveProjectButton href={project.liveUrl} label="Live Project" />
+              )}
+              {project.githubUrl && (
+                <LiveProjectButton href={project.githubUrl} label="GitHub" />
+              )}
+            </div>
           </div>
         </div>
 
         {/* Bottom row */}
         <div className="flex gap-4">
-          {/* Left column with 2 stacked images */}
-          <div className="w-[40%] flex flex-col gap-3">
-            <img
-              src={project.images[0]}
-              alt=""
-              loading="lazy"
-              className="w-full h-[clamp(130px,16vw,230px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
-            />
-            <img
-              src={project.images[1]}
-              alt=""
-              loading="lazy"
-              className="w-full h-[clamp(160px,22vw,340px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
-            />
-          </div>
-
-          {/* Right column with 1 tall image */}
-          <div className="w-[60%]">
-            <img
-              src={project.images[2]}
-              alt=""
-              loading="lazy"
-              className="w-full h-[clamp(260px,35vw,480px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
-            />
-          </div>
+          {project.images.length === 2 ? (
+            <>
+              {/* 2-image layout (e.g. ESP32 Walkie-Talkie) */}
+              <div className="w-[50%]">
+                <img
+                  src={project.images[0]}
+                  alt=""
+                  loading="lazy"
+                  className="w-full h-[clamp(260px,35vw,480px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
+                />
+              </div>
+              <div className="w-[50%]">
+                <img
+                  src={project.images[1]}
+                  alt=""
+                  loading="lazy"
+                  className="w-full h-[clamp(260px,35vw,480px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              {/* 3-image layout */}
+              <div className="w-[40%] flex flex-col gap-3">
+                <img
+                  src={project.images[0]}
+                  alt=""
+                  loading="lazy"
+                  className="w-full h-[clamp(130px,16vw,230px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
+                />
+                <img
+                  src={project.images[1]}
+                  alt=""
+                  loading="lazy"
+                  className="w-full h-[clamp(160px,22vw,340px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
+                />
+              </div>
+              <div className="w-[60%]">
+                <img
+                  src={project.images[2]}
+                  alt=""
+                  loading="lazy"
+                  className="w-full h-[clamp(260px,35vw,480px)] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] object-cover"
+                />
+              </div>
+            </>
+          )}
         </div>
       </motion.div>
     </div>
