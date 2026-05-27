@@ -6,7 +6,7 @@ import { ProjectsSection } from "./components/ProjectsSection";
 
 const App = () => {
   return (
-    <div className="main-wrapper">
+    <div className="main-wrapper overflow-x-clip">
       <HeroSection />
       <MarqueeSection />
       <AboutSection />

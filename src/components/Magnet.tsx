@@ -31,8 +31,8 @@ export const Magnet = ({
 
       const distance = Math.sqrt(x * x + y * y);
       if (distance < padding) {
-        const translateX = (x * strength) / distance;
-        const translateY = (y * strength) / distance;
+        const translateX = x / strength;
+        const translateY = y / strength;
         setStyle({
           transform: `translate3d(${translateX}px, ${translateY}px, 0)`,
           transition: activeTransition,
