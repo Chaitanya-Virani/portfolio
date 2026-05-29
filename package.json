@@ -12,6 +12,7 @@
     "verify": "npm run type-check && npm run build"
   },
   "dependencies": {
+    "@splinetool/react-spline": "^4.1.0",
     "framer-motion": "^12.0.0",
     "lucide-react": "^0.300.0",
     "react": "^18.2.0",

@@ -9,6 +9,8 @@ const projectsData = [
     number: "01",
     category: "Personal",
     title: "Customer Insight Triage System",
+    githubHref: "https://github.com/Chaitanya-Virani/CITS",
+    liveHref: "https://cits-u9pn.onrender.com/",
     images: [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
@@ -20,6 +22,8 @@ const projectsData = [
     number: "02",
     category: "Personal",
     title: "ESP32 Wireless Walkie-Talkie",
+    githubHref: "https://github.com/Chaitanya-Virani/ESP32_WALKIE-TALKIE",
+    liveHref: "",
     images: [
       "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
@@ -29,12 +33,14 @@ const projectsData = [
   {
     id: 3,
     number: "03",
-    category: "In Progress",
-    title: "Multi-Agent Research Assistant",
+    category: "Personal",
+    title: "Minutely",
+    githubHref: "https://github.com/Chaitanya-Virani/Minutely",
+    liveHref: "https://frontend-production-9e699.up.railway.app/",
     images: [
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1200&q=80"
     ]
   }
 ];
@@ -67,7 +73,11 @@ const ProjectCard = ({ project, index, progress, targetScale }: any) => {
             <h3 className="text-white font-black text-xl tracking-tight">
               {project.title}
             </h3>
-            <LiveProjectButton className="mt-2" />
+            <LiveProjectButton
+              className="mt-2"
+              githubHref={project.githubHref}
+              liveHref={project.liveHref}
+            />
           </div>
         </div>
 
