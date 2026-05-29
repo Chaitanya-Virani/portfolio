@@ -7,7 +7,7 @@ interface ContactButtonProps {
 export const ContactButton = ({ className = "" }: ContactButtonProps) => {
   return (
     <motion.a
-      href="https://www.linkedin.com/in/chaitanyavirani/"
+      href="mailto:chaitanyavirani125@gmail.com"
       target="_blank"
       rel="noopener noreferrer"
       whileHover={{ scale: 1.04 }}

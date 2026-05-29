@@ -18,9 +18,7 @@ export const ContactSection = () => {
         </FadeIn>
 
         <FadeIn delay={0.3} y={20}>
-          <a href="mailto:chaitanya@example.com">
-            <ContactButton />
-          </a>
+          <ContactButton />
         </FadeIn>
 
         <FadeIn delay={0.4} y={10}>
@@ -34,15 +32,7 @@ export const ContactSection = () => {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#D7E2EA]/60 font-medium uppercase tracking-wider text-sm hover:text-[#D7E2EA] transition-colors duration-300"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="mailto:chaitanya@example.com"
+              href="mailto:chaitanyavirani125@gmail.com"
               className="text-[#D7E2EA]/60 font-medium uppercase tracking-wider text-sm hover:text-[#D7E2EA] transition-colors duration-300"
             >
               Email
