@@ -73,7 +73,7 @@ export const MarqueeSection = () => {
       <div ref={containerRef} className="relative overflow-hidden">
         {/* Row 1 — drifts right on scroll */}
         <div
-          className="flex gap-3 mb-3 will-change-transform"
+          className="flex flex-nowrap gap-3 mb-3 will-change-transform"
           style={{ transform: `translateX(${offset - 200}px)` }}
         >
           {tripled.slice(0, 52).map((tech, i) => (
@@ -83,7 +83,7 @@ export const MarqueeSection = () => {
 
         {/* Row 2 — drifts left on scroll */}
         <div
-          className="flex gap-3 will-change-transform"
+          className="flex flex-nowrap gap-3 will-change-transform"
           style={{ transform: `translateX(${-offset + 200}px)` }}
         >
           {tripled.slice(10, 62).map((tech, i) => (

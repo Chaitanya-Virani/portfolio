@@ -46,37 +46,46 @@ export const HeroSection = () => {
         </nav>
       </FadeIn>
 
-      {/* ── 3-D robot — desktop only, conditionally rendered to avoid mobile iframe load ── */}
+      {/* ── Desktop: robot absolutely fills right 60% ── */}
       {isDesktop && (
-        <div className="absolute inset-y-0 right-0 w-[60%] lg:w-[55%] z-0 pointer-events-auto">
+        <div className="absolute inset-y-0 right-0 w-[60%] lg:w-[55%] z-0">
           <SplineHero />
         </div>
       )}
 
-      {/* Spacer pushes text to bottom on desktop */}
-      <div className="flex-1" />
+      {/* ── Desktop only: flex-1 spacer pushes text to bottom ── */}
+      {isDesktop && <div className="flex-1" />}
 
       {/* ── Heading ── */}
       <FadeIn delay={0.15} y={40}>
-        <div className="relative z-10 overflow-hidden px-5 sm:px-8 md:px-10 pb-1 md:pb-2">
+        <div className="relative z-10 overflow-hidden px-5 sm:px-8 md:px-10
+                        pt-8 sm:pt-10 md:pt-0 pb-1 md:pb-2">
           <h1 className="hero-heading font-black uppercase tracking-tight leading-none
-                         text-[14vw] sm:text-[13vw] md:text-[14vw] lg:text-[15vw]">
+                         text-[16vw] sm:text-[13vw] md:text-[14vw] lg:text-[15vw]">
             Hi, i&apos;m
           </h1>
           <h1 className="hero-heading font-black uppercase tracking-tight leading-none
-                         text-[14vw] sm:text-[13vw] md:text-[14vw] lg:text-[15vw]
+                         text-[16vw] sm:text-[13vw] md:text-[14vw] lg:text-[15vw]
                          -mt-1 sm:-mt-2 md:-mt-4">
             chaitanya
           </h1>
         </div>
       </FadeIn>
 
+      {/* ── Mobile only: robot in flow, below heading ── */}
+      {!isDesktop && (
+        <div className="relative z-0 w-full" style={{ height: "65vw" }}>
+          <SplineHero />
+        </div>
+      )}
+
       {/* ── Tagline ── */}
       <FadeIn delay={0.35} y={20}>
-        <div className="relative z-10 pb-8 sm:pb-9 md:pb-10 px-5 sm:px-8 md:px-10">
+        <div className="relative z-10 pb-8 sm:pb-9 md:pb-10
+                        px-5 sm:px-8 md:px-10 pt-3 md:pt-0">
           <p className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug
                         max-w-[200px] sm:max-w-[240px] md:max-w-[260px]
-                        text-[clamp(0.65rem,2.5vw,1rem)] md:text-[clamp(0.75rem,1.4vw,1.5rem)]">
+                        text-[clamp(0.65rem,2.8vw,0.9rem)] md:text-[clamp(0.75rem,1.4vw,1.5rem)]">
             An AI engineer obsessed with agents that act
           </p>
         </div>
