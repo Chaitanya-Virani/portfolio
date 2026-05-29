@@ -34,15 +34,16 @@ const techs = [
 const ICON_FILTER = "brightness(0) invert(1)";
 
 const LogoCard = ({ name, slug }: { name: string; slug: string }) => (
-  <div className="flex-shrink-0 flex flex-col items-center justify-center gap-3 w-[180px] h-[120px]">
+  <div className="flex-shrink-0 flex flex-col items-center justify-center gap-2 md:gap-3
+                  w-[110px] h-[80px] md:w-[180px] md:h-[120px]">
     <img
       src={`https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${slug}.svg`}
       alt={name}
       loading="lazy"
-      className="h-14 w-auto"
+      className="h-9 w-auto md:h-14"
       style={{ filter: ICON_FILTER }}
     />
-    <span className="text-[rgba(215,226,234,0.4)] text-[0.6rem] uppercase tracking-widest font-mono">
+    <span className="text-[rgba(215,226,234,0.4)] text-[0.5rem] md:text-[0.6rem] uppercase tracking-widest font-mono">
       {name}
     </span>
   </div>
@@ -57,7 +58,8 @@ export const MarqueeSection = () => {
       if (!containerRef.current) return;
       const sectionTop =
         containerRef.current.getBoundingClientRect().top + window.scrollY;
-      const newOffset = (window.scrollY - sectionTop + window.innerHeight) * 0.3;
+      const multiplier = window.innerWidth < 768 ? 0.12 : 0.3;
+      const newOffset = (window.scrollY - sectionTop + window.innerHeight) * multiplier;
       setOffset(newOffset);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -67,7 +69,7 @@ export const MarqueeSection = () => {
   const tripled = [...techs, ...techs, ...techs];
 
   return (
-    <section className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10">
+    <section className="bg-[#0C0C0C] pt-12 sm:pt-20 md:pt-32 pb-6 md:pb-10">
       <div ref={containerRef} className="relative overflow-hidden">
         {/* Row 1 — drifts right on scroll */}
         <div
